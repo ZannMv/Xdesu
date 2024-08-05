@@ -56,7 +56,7 @@ var getAnime = {
  },
  search: function(q) {
   let resultSection = document.querySelector("#results-section");
-  fetch("https://otakudesu-unofficial-api.rzkfyn.tech/api/v1/search/" + q).then((r)=>r.json()).then((j) => {
+  fetch("https://otakudesu-unofficial-api.vercel.app/v1/search" + q).then((r)=>r.json()).then((j) => {
    loadingSpinner1.remove();
    if (j.data.length > 0) {
     j.data.forEach((i) => {
