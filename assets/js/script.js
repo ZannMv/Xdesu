@@ -8,7 +8,7 @@ let loadingSpinner2 = document.querySelector("#loading-spinner2");
 
 var getAnime = {
  home: function() {
-  fetch("https://otakudesu-unofficial-api.vercel.app/v1/").then((r)=>r.json()).then((j) => {
+  fetch("https://otakudesu-unofficial-api.vercel.app/v1/home").then((r)=>r.json()).then((j) => {
    loadingSpinner1.remove();
    loadingSpinner2.remove();
    //ongoingSection
