@@ -154,7 +154,7 @@ var getAnime = {
   });
  },
  batch: async function (slug) {
-  let res = await fetch("https://otakudesu-anime-api.vercel.app/api/v1/batch/" + slug);
+  let res = await fetch("https://otakudesu-anime-api.vercel.app/v1/batch/" + slug);
   let json = await res.json();
   // console.log(json);
 
@@ -213,7 +213,7 @@ var getAnime = {
   }
  },
  info: function(slug) {
-  fetch("https://otakudesu-unofficial-api.rzkfyn.tech/api/v1/anime/" + slug).then((r) => r.json()).then((j) => {
+  fetch("https://otakudesu-unofficial-api.vercel.app/v1/anime/" + slug).then((r) => r.json()).then((j) => {
    // console.log(j);
    if (j.status == "Ok") {
     document.title = `${j.data.title} - OtokoDesu`;
