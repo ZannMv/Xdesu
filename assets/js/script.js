@@ -186,7 +186,7 @@ var getAnime = {
    document.querySelector("#episode").innerText = eps.data.episode;
    document.querySelector("#download-menu").innerHTML = `${eps.data.download_urls.mp4.map((d) => '<li class="menu-title"><span>'+d.resolution+'</span></li><li>'+ (d.urls.map((u) => "<a target='_blank' href='"+u.url+"'>"+u.provider+"</a>").join("")) +'</li>').join("")}`
 
-   let Res = await fetch("https://otakudesu-unofficial-api.vercel.app/v1/" + anime_slug);
+   let Res = await fetch("https://otakudesu-unofficial-api.vercel.app/v1/anime/:slug" + anime_slug);
    let anime = await Res.json();
    document.querySelector("meta[property='og:image']").content = anime.data.poster;   
    if (anime.status == "Ok") {
