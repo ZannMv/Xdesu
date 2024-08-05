@@ -154,7 +154,7 @@ var getAnime = {
   });
  },
  batch: async function (slug) {
-  let res = await fetch("https://otakudesu-anime-api.vercel.app/v1/batch/" + slug);
+  let res = await fetch("https://otakudesu-anime-api.vercel.app/v1/batch/:slug" + slug);
   let json = await res.json();
   // console.log(json);
 
