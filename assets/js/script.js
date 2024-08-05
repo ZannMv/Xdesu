@@ -161,7 +161,7 @@ var getAnime = {
  },
  episode: async function(eps_slug,
   anime_slug) {
-  let res = await fetch("https://otakudesu-unofficial-api.vercel.app/v1/anime/:slug/episodes" + eps_slug);
+  let res = await fetch("https://otakudesu-unofficial-api.vercel.app/v1/episode/:slug" + eps_slug);
   let eps = await res.json();
   // console.log(eps);
   if (eps.status != "Ok") {
@@ -186,7 +186,7 @@ var getAnime = {
    document.querySelector("#episode").innerText = eps.data.episode;
    document.querySelector("#download-menu").innerHTML = `${eps.data.download_urls.mp4.map((d) => '<li class="menu-title"><span>'+d.resolution+'</span></li><li>'+ (d.urls.map((u) => "<a target='_blank' href='"+u.url+"'>"+u.provider+"</a>").join("")) +'</li>').join("")}`
 
-   let Res = await fetch("https://otakudesu-unofficial-api.vercel.app//v1/anime/:slug/episodes/:episode" + anime_slug);
+   let Res = await fetch("https://otakudesu-unofficial-api.vercel.app/v1/anime/:slug" + anime_slug);
    let anime = await Res.json();
    document.querySelector("meta[property='og:image']").content = anime.data.poster;   
    if (anime.status == "Ok") {
@@ -213,7 +213,7 @@ var getAnime = {
   }
  },
  info: function(slug) {
-  fetch("https://otakudesu-unofficial-api.vercel.app/v1/anime/" + slug).then((r) => r.json()).then((j) => {
+  fetch("https://otakudesu-unofficial-api.vercel.app/v1/anime/:slug/episodes" + slug).then((r) => r.json()).then((j) => {
    // console.log(j);
    if (j.status == "Ok") {
     document.title = `${j.data.title} - OtokoDesu`;
