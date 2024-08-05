@@ -213,7 +213,7 @@ var getAnime = {
   }
  },
  info: function(slug) {
-  fetch("https://otakudesu-unofficial-api.vercel.app/v1/anime/:slug/episodes" + slug).then((r) => r.json()).then((j) => {
+  fetch("https://otakudesu-unofficial-api.vercel.app/v1/episode/:slug" + slug).then((r) => r.json()).then((j) => {
    // console.log(j);
    if (j.status == "Ok") {
     document.title = `${j.data.title} - OtokoDesu`;
