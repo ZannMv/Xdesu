@@ -118,7 +118,7 @@ var getAnime = {
   });
  },
  completed: function(p) {
-  fetch(`https://otakudesu-unofficial-api.rzkfyn.tech/api/v1/complete-anime/${p ? p: ""}`).then((r)=>r.json()).then((j) => {
+  fetch(`https://otakudesu-unofficial-api.vercel.app/v1/complete-anime/${p ? p: ""}`).then((r)=>r.json()).then((j) => {
    loadingSpinner1.remove();
    let loadMore = document.querySelector("#loadMore");
    if (j.pagination.has_next_page) {
@@ -161,7 +161,7 @@ var getAnime = {
  },
  episode: async function(eps_slug,
   anime_slug) {
-  let res = await fetch("https://otakudesu-unofficial-api.rzkfyn.tech/api/v1/episode/" + eps_slug);
+  let res = await fetch("https://otakudesu-unofficial-api.vercel.app/v1/anime/:slug/episodes" + eps_slug);
   let eps = await res.json();
   // console.log(eps);
   if (eps.status != "Ok") {
